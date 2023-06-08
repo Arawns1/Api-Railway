@@ -37,7 +37,7 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            //.cors(Customizer.withDefaults()) //habilita o cors
+            .cors(Customizer.withDefaults()) //habilita o cors
             .csrf(csrf -> csrf.disable()) //desabilita o csrf
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
