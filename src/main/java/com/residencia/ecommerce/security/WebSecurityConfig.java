@@ -48,7 +48,7 @@ public class WebSecurityConfig {
                     .requestMatchers(HttpMethod.POST,"/pedidos/**","/itempedidos/**").hasAnyRole("USER","ADMIN") //autoriza o acesso a rotas por perfis
                     .requestMatchers(HttpMethod.PUT,"/pedidos/**","/itempedidos/**").hasAnyRole("USER","ADMIN") //autoriza o acesso a rotas por perfis
                     .requestMatchers(HttpMethod.DELETE,"/pedidos/**","/itempedidos/**").hasAnyRole("USER","ADMIN") //autoriza o acesso a rotas por perfis
-                    .anyRequest().authenticated()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
+                    .anyRequest().permitAll()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
 		;		
 		
 		http.authenticationProvider(authenticationProvider()); //define o provedor de autenticacao
