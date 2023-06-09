@@ -1,67 +1,40 @@
-# Trabalho Final - Grupo 6 - API Restfull 
-- API RESTFul de um E-commerce
-# Integrantes:
-- [LUIS FELIPE HAMMES DE MELLO CAMPOS](https://github.com/lf-hammes)
-- [MARIANE DOS SANTOS MAGALHÃES](https://github.com/MarianeSMagalhaes)
-- [PAULO VITOR DE OLIVEIRA DOS REIS LESSA](https://github.com/PauloVitorLessa)
-- [ROBERTA MEDEIROS STUMPF](https://github.com/roberta2105)
-- [WILLIAM RAEDER RODRIGUES TINOCO](https://github.com/willtinoco97)
-- [YAGO ROMERO DE CASTRO PEDRO OLIVEIRA BONILHA](https://github.com/yagob2)
+# Trabalho Final - Grupo 3 - API Restful
 
-# Tecnologias utilizadas
+📍 Trabalho final para a disciplina de API Restful da Residência em TIC do Serratec, com o objetivo de criar uma API de um e-commerce
+
+## Requisições
+
+➡️ Para ter acesso a todas as requisições disponíveis, por meio do Swagger:
+
+```bash
+  http://localhost:8080/grupo3trabalho/swagger-ui/index.html#/
+```
+
+## Integrantes
+
+- [Isabel de Freitas](https://github.com/isabeldefreitas)
+- [Juliana Boubée](https://github.com/boubeejul)
+- [Jullian Carlo](https://github.com/JullianCarlo)
+- [Luiz Otávio](https://github.com/luizitosuares)
+- [Paulo Cezar](https://github.com/PAULOCEZAR01)
+- [Rômulo Andriolo](https://github.com/Artoda)
+
+
+## DER
+
+![](https://github.com/isabeldefreitas/Trabalho-API/blob/main/der.png?raw=true)
+
+
+## Tecnologias utilizadas
+
 ![](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![](https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white)
+![](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=white)
 
-# Requisitos do trabalho:
-- O banco de dados e as tabelas deverão ser criados de acordo com o
-DER fornecido abaixo, a partir das Entidades;
-- Não será permitido alterar a estrutura/relacionamento entre as
-entidades constantes no DER.
-- Todos os endpoints disponibilizados pela API deverão estar
-funcionais e realizando os processos para os quais foram
-desenvolvidos;
-- Para todos os recursos da API deverão ser disponibilizados os
-métodos CRUD;
-- Deverá ser criado um Relatório de Pedido, contendo: id do pedido,
-data do pedido, valor total; Relação de itens do pedido: código e
-nome do produto, preço de venda, quantidade, valor bruto,
-percentual de desconto e valor líquido. Tal relatório deverá ser criado
-com a utilização de DTO;
-- Para transição dos dados referentes aos métodos CRUD poderão ser
-utilizadas as Entidades ou DTOs, à escolha dos Grupos;
-- Poderão ser criados diferentes DTOs referentes a uma mesma
-Entidade, caso necessário;
-- Em todos os métodos CRUD deverão ser identificadas e tratadas as
-exceções de item não encontrado, com a exibição de mensagem
-personalizada;
-- As imagens dos Produtos deverão ser armazenadas no banco de
-dados (utilizar o tipo de dados blob/bytea para tal);
 
-- A cada novo pedido cadastrado deverá ser enviado um e-mail
-contendo o Relatório de Pedido (descrito acima);
-- Deverão ser implementados a autenticação e o controle de acesso à
-API (com o módulo de segurança do Spring + JWT);
+#
 
-Regras de Negócio:
-- No ato de cadastro de um novo pedido deverá ser calculado os
-valores bruto e líquido dos produtos: valor bruto (preço venda *
-qtde) e valor líquido (valor bruto – valor desconto; sendo esse último
-calculado através da aplicação do percentual de desconto sobre o
-valor bruto);
-- Ao final do cadastro de um novo pedido deverá ser calculado e
-armazenado o seu valor total: soma dos valores líquidos dos itens do
-pedido;
-- Os dados do endereço do Cliente deverão ser obtidos a partir de sua
-coleta numa API externa de consulta de CEP;
+<div align="center"><img src="https://camo.githubusercontent.com/5228369060d19dcc54abe504fb33140e0c69db5c3ae60693868812d8f550efaf/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313039303037363533393630323836363137362f313039303335333035393239303431393334302f3332363732373030395f3837363639313436303034383234375f313536313132353339393930393630393335395f6e2d72656d6f766562672d707265766965772d72656d6f766562672d707265766965772e706e67"/></div>
 
-Regras de Negócio – Desejáveis/Opcionais:
-- Não deverá ser possível cadastrar um pedido com data retroativa à
-atual;
-- Não deverá ser possível cadastrar um produto com descrição idêntica
-a uma já existente;
-- Não deverá ser possível cadastrar diferentes clientes com um mesmo
-número de CPF;
-- Não deverá ser possível cadastrar diferentes clientes com um mesmo
-endereço de e-mail;
 
-![Diagrama ER](https://github.com/PauloVitorLessa/API-RESTful-Trabalho-Final/blob/main/Diagrama-ER.png?raw=true)
