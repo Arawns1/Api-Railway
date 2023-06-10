@@ -1,6 +1,7 @@
 package com.trabalhoFinal.apiEcommerce.security;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -59,6 +60,7 @@ public class WebSecurityConfig {
 		configuration.setAllowedOrigins(Arrays.asList("*"));
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
 		configuration.addAllowedOrigin("http://localhost:5173"); // Adicionando o link permitido
+		configuration.setAllowedHeaders(List.of("Authorization"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 		return source;
