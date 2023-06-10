@@ -37,7 +37,7 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            //.cors(Customizer.withDefaults()) //habilita o cors
+            .cors(Customizer.withDefaults()) //habilita o cors
             .csrf(csrf -> csrf.disable()) //desabilita o csrf
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
@@ -61,15 +61,8 @@ public class WebSecurityConfig {
 		configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
 		configuration.addAllowedOrigin("http://localhost:5173"); // Adicionando o link permitido
 		configuration.setAllowedHeaders(List.of("Authorization"));
-		configuration.setAllowedHeaders(Arrays.asList("X-Requested-With", "Origin", "Content-Type", "Accept",
-	            "Authorization", "Access-Control-Allow-Credentials", "Access-Control-Allow-Headers", "Access-Control-Allow-Methods",
-	            "Access-Control-Allow-Origin", "Access-Control-Expose-Headers", "Access-Control-Max-Age",
-	            "Access-Control-Request-Headers", "Access-Control-Request-Method", "Age", "Allow", "Alternates",
-	            "Content-Range", "Content-Disposition", "Content-Description"));
-		configuration.setAllowCredentials(true);
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
-
 		return source;
 	}
 	
