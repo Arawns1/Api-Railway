@@ -45,11 +45,8 @@ public class UploadArquivo {
 	@JsonIgnore
 	private byte[] data;
 	
-	
-
 	public UploadArquivo() {
 	}
-
 
 	public UploadArquivo(String nome, String tipoArquivo, String url_imagem, byte[] data) {
 		super();
