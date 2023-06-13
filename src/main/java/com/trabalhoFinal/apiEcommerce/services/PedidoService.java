@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.trabalhoFinal.apiEcommerce.dto.MessageDTO;
@@ -18,6 +19,7 @@ import com.trabalhoFinal.apiEcommerce.entities.Cliente;
 import com.trabalhoFinal.apiEcommerce.entities.ItemPedido;
 import com.trabalhoFinal.apiEcommerce.entities.Pedido;
 import com.trabalhoFinal.apiEcommerce.exceptions.ClienteNotFoundException;
+import com.trabalhoFinal.apiEcommerce.exceptions.NoSuchElementException;
 import com.trabalhoFinal.apiEcommerce.exceptions.PedidoNotFoundException;
 import com.trabalhoFinal.apiEcommerce.repositories.ClienteRepository;
 import com.trabalhoFinal.apiEcommerce.repositories.PedidoRepository;
@@ -160,19 +162,14 @@ public class PedidoService {
 
 	}
 
-	public Boolean savePedido(Pedido pedido) {
-
-		LocalDate localDate = LocalDate.now();
+	public Pedido savePedido(Pedido pedido) {
+		try {
+			return pedidoRepository.save(pedido);
+		} catch(DataAccessException e) {
+			throw new NoSuchElementException("");
+		}
 		
-		Boolean data_pedido = pedido.getData_pedido().isEqual(localDate) || pedido.getData_pedido().isAfter(localDate);
-		Boolean data_entrega = pedido.getData_entrega().isEqual(pedido.getData_pedido()) || pedido.getData_entrega().isAfter(pedido.getData_pedido());
-		Boolean data_envio = pedido.getData_envio().isEqual(pedido.getData_entrega()) || pedido.getData_envio().isAfter(pedido.getData_entrega());
-		
-		if(data_pedido && data_entrega && data_envio)
-			return true;
-		else
-			return false;
-	}
+		}
 
 	public Pedido updatePedido(Pedido pedido) {
 		return pedidoRepository.save(pedido);
