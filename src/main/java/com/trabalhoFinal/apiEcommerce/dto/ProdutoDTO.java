@@ -11,6 +11,7 @@ public class ProdutoDTO {
 	private Double valor_unitario;
 	private Integer id_imagem;
 	private String nome_imagem;
+	private String url_imagem;
 	private CategoriaProdDTO categoriaProdDto;
 
 
@@ -78,5 +79,14 @@ public class ProdutoDTO {
 	public void setCategoriaProdDto(CategoriaProdDTO categoriaProdDto) {
 		this.categoriaProdDto = categoriaProdDto;
 	}
+
+	public String getUrl_imagem() {
+		return url_imagem;
+	}
+
+	public void setUrl_imagem(String url_imagem) {
+		this.url_imagem = url_imagem;
+	}
+	
 
 }
