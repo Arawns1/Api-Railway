@@ -41,7 +41,7 @@ public class UploadArquivoService {
 			
 			URI uri = ServletUriComponentsBuilder
 					.fromCurrentContextPath()
-					.path("/view/{id}")
+					.path("/upload/view/{id}")
 					.buildAndExpand(arquivo.getId_imagem())
 					.toUri();
 			
