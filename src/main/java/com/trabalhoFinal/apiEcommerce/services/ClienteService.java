@@ -74,4 +74,9 @@ public class ClienteService {
 		return new MessageDTO("Cliente excluido com sucesso");
 
 	}
+	
+	public Cliente getClienteByEmail(String email) {
+		return clienteRepository.findByEmail(email);
+	}
+	
 }

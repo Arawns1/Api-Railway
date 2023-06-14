@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trabalhoFinal.apiEcommerce.dto.ClienteDTO;
@@ -77,4 +78,10 @@ public class ClienteController {
 		return new ResponseEntity<>(clienteService.delCliente(id), HttpStatus.OK);
 		
 	}
+	
+	@GetMapping("/findByEmail")
+	public ResponseEntity<Cliente> findByEmail(@RequestParam("email") String email) {
+		return new ResponseEntity<>(clienteService.getClienteByEmail(email), HttpStatus.OK);
+	}
+	
 }
