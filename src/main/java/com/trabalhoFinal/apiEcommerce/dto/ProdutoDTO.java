@@ -3,7 +3,8 @@ package com.trabalhoFinal.apiEcommerce.dto;
 import java.time.LocalDate;
 
 public class ProdutoDTO {
-
+	
+	private Integer idProduto;
 	private String nome;
 	private String descricao;
 	private Integer qtd_estoque;
@@ -14,8 +15,15 @@ public class ProdutoDTO {
 	private String url_imagem;
 	private CategoriaProdDTO categoriaProdDto;
 
-
 	
+	public Integer getIdProduto() {
+		return idProduto;
+	}
+
+	public void setIdProduto(Integer idProduto) {
+		this.idProduto = idProduto;
+	}
+
 	public String getNome_imagem() {
 		return nome_imagem;
 	}
