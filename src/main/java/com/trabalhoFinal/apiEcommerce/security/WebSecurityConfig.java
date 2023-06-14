@@ -42,8 +42,8 @@ public class WebSecurityConfig {
             .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler)) //configura a classe para tratamento da excecao de autenticacao
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //define a politica de sessao
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/**", "/enderecos", "/roles", "/produtos/dto", "/categorias/dto", "/clientes/**" ,"/swagger-ui/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
-                    .requestMatchers("/pedidos/user/**", "/itemPedidos/**","/itemPedidos", "/pedidos/**").hasAnyRole("USER","ADMIN", "MODERATOR") // autoriza o acesso a rotas por perfil
+                    .requestMatchers("/auth/**", "/enderecos", "/roles", "/produtos/dto", "/categorias/dto", "/clientes/**" ,"/swagger-ui/**",  "/itemPedidos/**","/itemPedidos", "/pedidos/**", "/v3/api-docs/**", "/upload/**").permitAll() //define as rotas publicas/abertas
+                    .requestMatchers("/pedidos/user/**").hasAnyRole("USER","ADMIN", "MODERATOR") // autoriza o acesso a rotas por perfil
                     .requestMatchers("/categorias/**", "/produtos/**", "/users/**").hasAnyRole("ADMIN", "MODERATOR") //autoriza o acesso a rotas por perfis
                     .anyRequest().authenticated()) //demais rotas, nao configuradas acima, so poderao ser acessadas mediante autenticacao
 		;		
